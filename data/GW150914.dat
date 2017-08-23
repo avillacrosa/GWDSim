@@ -1,0 +1,12 @@
+#M1 (mass of object 1) IN SOLAR MASSES
+36
+#M2 (mass of object 2) IN SOLAR MASSES
+29
+#r (distance to source) IN MEGAPARSECS
+410
+#Angle to the sky IN RADIANS
+1.42
+#Initial phase (arbitrary) IN RADIANS
+0.0
+#Initial frequency
+1.0
