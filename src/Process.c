@@ -180,9 +180,9 @@ fftw_complex *GetSignal()
 		Wave[N][1]=0;
 		Signal[N][0]=Wave[N][0]+Noise[N][0];
 		Signal[N][1]=0;
-		fprintf(fout," %.2e %.5e \n",N/CosF,Signal[N][0]);
-		fprintf(foutN," %.2e %.5e \n",N/CosF,Noise[N][0]);
-		fprintf(foutS," %.2e %.5e \n",N/CosF,Wave[N][0]);
+		fprintf(fout," %.5e %.5e \n",N/CosF,Signal[N][0]);
+		fprintf(foutN," %.5e %.5e \n",N/CosF,Noise[N][0]);
+		fprintf(foutS," %.5e %.5e \n",N/CosF,Wave[N][0]);
 	}
 	fclose(fout);
 	fclose(foutS);

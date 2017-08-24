@@ -47,17 +47,13 @@ double PSD(int M)
 	fout=fopen("./output/PSD.dat","w");
 	int N,L;
 	fftw_complex *Result;
-	fftw_complex *APSD;
 	Result = (fftw_complex*) fftw_malloc(sizeof(fftw_complex)*MT);
-	APSD = (fftw_complex*) fftw_malloc(sizeof(fftw_complex)*MT);
 	double Modulus[M];
 	double k = 1000;
 	double MeanPSD,x;
 		for (N=0;N<MT;N++)//Arrays must be initialized
 		{
 			Modulus[N]=0;
-			APSD[N][0]=0;
-			APSD[N][1]=0;
 		}
 		for (N=0;N<k;N++)//Realizations (average of the ensemble). Modifiyable
 		{
@@ -78,16 +74,7 @@ double PSD(int M)
 			MeanPSD+=Modulus[N];	
 		}
 		MeanPSD=MeanPSD/(MT/2);
-		for (N=0;N<MT;N++)
-		{
-			x=N;
-			x=x/(MaxTime);	
-			APSD[N][0]=APSD[N][0]/k;				
-			APSD[N][1]=APSD[N][1]/k;				
-			fprintf(fout," %f %e %e \n",x,APSD[N][0],APSD[N][1]);//Everytime we call the metod a new calculation is made...
-		}
 	fclose(fout);
-	fftw_free(APSD);
 	fftw_free(Result);
 	return 0;
 }
@@ -159,14 +146,16 @@ void FourierPhases ()
 	NoiseFFT=fftw(MT,Method(MT),-1);
 	for(x=0;x<CosF;x+=CosF/MT)
 	{
-		Fase=atan(NoiseFFT[j][1]/NoiseFFT[j][0]);
+		Phase=atan(NoiseFFT[j][1]/NoiseFFT[j][0]);
 		if(NoiseFFT[j][0] > 0 && NoiseFFT[j][1] > 0)
-				Fase=Fase;
+				Phase=Phase;
 		if(NoiseFFT[j][0] < 0 && NoiseFFT[j][1] > 0)
-				
-		if(NoiseFFT[j][0] > 0 && NoiseFFT[j][1] > 0)
-		if(NoiseFFT[j][0] > 0 && NoiseFFT[j][1] > 0)
-		fprintf(fout," %f %f \n",x,atan(NoiseFFT[j][1]/NoiseFFT[j][0]));//Phas is just the arctangent of the complex number by the real number
+				Phase=Phase+M_PI;	
+		if(NoiseFFT[j][0] > 0 && NoiseFFT[j][1] < 0)
+				Phase=Phase;
+		if(NoiseFFT[j][0] < 0 && NoiseFFT[j][1] < 0)
+				Phase=Phase-M_PI;
+		fprintf(fout," %f %f \n",x,Phase);//Phas is just the arctangent of the complex number by the real number
 		j++;	
 	}
 	fclose(fout);

@@ -5,8 +5,8 @@
 #r (distance to source) IN MEGAPARSECS
 410
 #Angle to the sky IN RADIANS
-1.42
+3.14
 #Initial phase (arbitrary) IN RADIANS
-0.0
+3.14
 #Initial frequency
-1.0
+3.14
