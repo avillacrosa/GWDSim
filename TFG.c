@@ -21,7 +21,7 @@ int main (int argc, char *argv[])
 	ChooseMethod();
 	ChooseGW();
 	printf("Time of measurement in seconds (integer) : ");
-	scanf(" %d",&MaxTime);//Maximum time of measurement
+	scanf(" %lf",&MaxTime);//Maximum time of measurement
 	printf("Sampling frequency in Hz (integer) : ");
 	scanf(" %lf",&CosF);//Sampling frequency
 	MT=CosF*MaxTime;//Number of points in the final signal series
