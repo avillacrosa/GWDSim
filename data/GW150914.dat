@@ -7,6 +7,6 @@
 #Angle to the sky IN RADIANS
 3.14
 #Initial phase (arbitrary) IN RADIANS
-3.14
+100.14
 #Initial frequency
-3.14
+3000.14

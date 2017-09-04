@@ -170,7 +170,7 @@ double ProtoMatchedFilter ()
 	fout=fopen("./output/Filter.dat","w");
 	int i,j,lag=0;
 	double SNR=0,spre=0,Mass,smod;
-	double Params[6];
+	double *Params;
 	double s[2];
 	s[0]=0;
 	s[1]=0;
@@ -184,16 +184,12 @@ double ProtoMatchedFilter ()
 	FWave=(fftw_complex*) fftw_malloc(sizeof(fftw_complex)*(MT));
 	Wiener=(fftw_complex*) fftw_malloc(sizeof(fftw_complex)*(MT));
 	FWiener=(fftw_complex*) fftw_malloc(sizeof(fftw_complex)*(MT));
+	Params=ReadFromData();//Read Data from File
+	Params[1]=0;//Maximize only the second mass
 	for (j=0;j<100;j++)//Every j adds a mass to the Wiener filter (100 in this case). This can be modified with no problem
 	{
-		Params[0]=36.0;
 		Params[1]++;
-		Params[2]=410.0;
-		Params[3]=1.42;
-		Params[4]=0.0;
-		Params[5]=1.0;
 		DetOut=GetSignal();
-		i=0;
 		for(i=0;i<MT;i++)
 		{
 			WaveM[i][0]=Strain(i/CosF,Params);

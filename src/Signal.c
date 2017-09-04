@@ -118,7 +118,6 @@ double VIRGO(double x)//Thresh=20Hz
 	}
 }
 
-
 double *ReadFromData()//Functions used to read GW parameters. Order is important since there is no given information anywhere on what is each parameter
 {
 	char line[100];
