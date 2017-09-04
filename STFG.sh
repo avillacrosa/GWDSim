@@ -24,7 +24,7 @@ then
 	vim -o ./output/Noise.dat
 fi
 
-#<<COMMENT1
+<<COMMENT1
 gnuplot -e "set term qt 0;
 			set format y \"%.2e\";
 			set ylabel \"Senyal\";
@@ -39,4 +39,4 @@ gnuplot -e "set term qt 0;
 			set logscale y;
 			set ylabel \"log(sqrt(PSD))\";
 			plot \"./output/RefPSD.dat\" with lines, \"./output/PSD.dat\" with lines; pause -1;"
-#COMMENT1
+COMMENT1

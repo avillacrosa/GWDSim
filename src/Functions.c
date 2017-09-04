@@ -43,7 +43,7 @@ double RealFourier(double x,void * params)
 double ComplexFourier(double x, void * params)
 {	
 	int i = *(int *)params;
-	double p = PSDC(x)*sin(2*M_PI*x*i/CosF);
+	double p = CosF*PSDC(x)*sin(2*M_PI*x*i/CosF);
 	return p;	
 }
 

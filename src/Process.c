@@ -128,23 +128,20 @@ void ChooseGW()
 	char* GWData[50];
 	StrFunc GWStrain[10];
 	
-	GW[1]="Advanced Inspiral (2.5 PostNewtonian (PN))";
-	GW[2]="GW150914 (First observation of GW) (2.5 PN)";
-	GW[3]="Stochastic background";
-	GW[4]="Basic Inspiral";
+	GW[1]="Advanced Inspiral (2 Order PostNewtonian (PN))";
+	GW[2]="GW150914 (First observation of GW) (2 PN)";
+	GW[3]="GW151226 (Second observation of GW) (2 PN)";
 
 	GWData[1]="./data/Inspiral.dat";
 	GWData[2]="./data/GW150914.dat";
-	GWData[3]="./data/StochasticBG.dat";
-	GWData[4]="./data/BasicInspiral.dat";
+	GWData[3]="./data/GW151226.dat";
 	
 	GWStrain[1]=&AdvInspiral;
 	GWStrain[2]=&AdvInspiral;
-	GWStrain[3]=&Stochastic;	
-	GWStrain[4]=&Inspiral;	
+	GWStrain[3]=&AdvInspiral;
 
 	printf("Choose the source of the GW : \n");
-	for(i=1;i<5;i++)
+	for(i=1;i<4;i++)
 	{
 		printf(" %d - %s \n",i,GW[i]);
 	}

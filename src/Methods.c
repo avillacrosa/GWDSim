@@ -96,7 +96,7 @@ fftw_complex *ExactFreq ()
 	Vf = fftw(M,V,-1);
 	for (k=0;k<M/2;k++)
 	{
-		Vend[k][0]=Vf[k][0];//Only take the real part
+		Vend[k][0]=Vf[k][0]/sqrt(MT);//Only take the real part
 		Vend[k][1]=0;		//Vf[k][0] should be smaller that Vf[k][0]
 		fprintf(fout," %d %.5e %.5e \n",k,Vend[k][0],Vend[k][1]);
 	}

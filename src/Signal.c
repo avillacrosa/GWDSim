@@ -47,7 +47,6 @@ double (*PSDC)(double);
 double *(*Strain)(double,double *);
 double CosF;
 int MT;
-//int MaxTime;
 double MaxTime;
 double Thr[3];
 char *GWPath;

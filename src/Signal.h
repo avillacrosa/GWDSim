@@ -6,7 +6,6 @@ extern double (*PSDC)(double);
 extern double (*Strain)(double,double *);
 extern double CosF;
 extern int MT;
-//extern int MaxTime;
 extern double MaxTime;
 extern double Thr[3];
 extern char *GWPath;

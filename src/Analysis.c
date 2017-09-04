@@ -60,8 +60,8 @@ double PSD(int M)
 			Result = fftw(MT,Method(MT),-1);
 			for (L=0;L<MT/2;L++)//Only runs up to MT/2 since it is symmetric after that point
 			{
-				Result[L][0]=Result[L][0]/sqrt(MT);
-				Result[L][1]=Result[L][1]/sqrt(MT);
+				Result[L][0]=Result[L][0]/sqrt(CosF*MT);
+				Result[L][1]=Result[L][1]/sqrt(CosF*MT);
 				Modulus[L]+=pow(Result[L][0],2)+pow(Result[L][1],2);
 			}
 		}
@@ -69,7 +69,7 @@ double PSD(int M)
 		{
 			x=N;
 			x=x/(MaxTime);
-			Modulus[N]=sqrt(Modulus[N]/(k));//TAKING SQRT OF PSD!!!
+			Modulus[N]=sqrt(Modulus[N]*CosF)/sqrt(k);//TAKING SQRT OF PSD!!!
 			fprintf(fout," %f %e \n",x,Modulus[N]);
 			MeanPSD+=Modulus[N];	
 		}
